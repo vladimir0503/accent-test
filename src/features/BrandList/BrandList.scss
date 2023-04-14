@@ -1,0 +1,29 @@
+.brandList {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    h3 {
+        margin: 0 0 10px 0;
+        color: #001529
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0 0 10px 0;
+        padding: 0;
+
+        li {
+            text-align: start;
+
+            span {
+                font-size: 17px;
+            }
+        }
+    }
+
+    p {
+        color: red;
+        cursor: pointer;
+    }
+}
