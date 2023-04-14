@@ -16,9 +16,6 @@ function App() {
           <Route path='/cart' element={<Cart />} />
         </Routes>
       </div>
-      {/* <div className='App__content'>
-        <Home />
-      </div> */}
     </div>
   );
 }
