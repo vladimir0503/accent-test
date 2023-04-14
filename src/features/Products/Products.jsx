@@ -7,10 +7,14 @@ import Product from '../Products/Product/Product';
 import './Products.scss';
 
 const Products = () => {
+  // const [currentPage, setCurrentPage] = React.useState(1);
 
   const { productsList } = useSelector(state => state.products);
 
-  console.log(productsList);
+  // const handlePageChange = page => {
+  //   console.log(page);
+  //   setCurrentPage(page);
+  // };
 
   return (
     <div className='products'>
@@ -18,7 +22,7 @@ const Products = () => {
         ? productsList.map((product, i) => <Product key={i} {...product} />)
         : <Title level={2}>Выберите бренд</Title>
       }
-      {productsList.length > 6 && <Pagination defaultCurrent={1} total={50} />}
+      {/* {productsList.length > 6 && <Pagination pageSize={6} current={currentPage} total={productsList.length} onChange={handlePageChange} />} */}
     </div>
   );
 };
