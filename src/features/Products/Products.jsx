@@ -16,10 +16,12 @@ const Products = () => {
   //   setCurrentPage(page);
   // };
 
+  console.log(productsList);
+
   return (
     <div className='products'>
       {!!productsList.length
-        ? productsList.map((product, i) => <Product key={i} {...product} />)
+        ? productsList.map((product, i) => <Product key={i} product={product}/>)
         : <Title level={2}>Выберите бренд</Title>
       }
       {/* {productsList.length > 6 && <Pagination pageSize={6} current={currentPage} total={productsList.length} onChange={handlePageChange} />} */}

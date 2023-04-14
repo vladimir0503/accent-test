@@ -11,10 +11,24 @@ export const cartSlice = createSlice({
     reducers: {
         addItems: (state, action) => {
             state.cartItems = [...state.cartItems, action.payload];
+            state.totalPrice = state.cartItems.reduce((sum, { regular_price }) => {
+                return sum + regular_price.value
+            }, 0);
         },
 
         deleteItems: (state, action) => {
-            state.products = state.cartItems.filter(item => item.id !== action.payload)
+            let found = false;
+            state.cartItems = state.cartItems.filter(item => {
+                if (!found && item.id === action.payload.id) {
+                    found = true;
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+            state.totalPrice = state.cartItems.reduce((sum, { regular_price }) => {
+                return sum + regular_price.value
+            }, 0);
         },
 
         clearCart: state => {
