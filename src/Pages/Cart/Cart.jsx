@@ -1,6 +1,6 @@
 import React from 'react';
-// import CartList from '../../features/Cart/CartList';
 import CartList from '../../features/Cart/CartList/CartList';
+import OrderForm from '../../features/Cart/OrderForm/OrderForm';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItems, deleteItems } from '../../features/Cart/cartSlice';
 
@@ -12,7 +12,6 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const deleteCartItem = id => {
-        console.log(id);
         dispatch(deleteItems(id));
     };
 
@@ -22,6 +21,7 @@ const Cart = () => {
 
     return (
         <div className='cart'>
+            <OrderForm totalPrice={totalPrice}/>
             <CartList
                 items={cartItems}
                 handleAddItem={addCartItem}

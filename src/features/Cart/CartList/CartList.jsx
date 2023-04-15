@@ -15,8 +15,14 @@ const CartList = ({ items, handleAddItem, handleDeleteItem }) => {
         return acc;
     }, {}));
 
+    const getItemTotalPrice = arr => {
+        return arr.reduce((sum, { regular_price }) => {
+            return sum + regular_price.value
+        }, 0);
+    };
+
     return (
-        <div className='cart'>
+        <div className='cartList'>
             {
                 Boolean(orderedList.length)
                     ? <List
@@ -34,9 +40,9 @@ const CartList = ({ items, handleAddItem, handleDeleteItem }) => {
                                             <Avatar src={item[0].image} />
                                         }
                                         title={<Title level={5}>{item[0].title}</Title>}
-                                        description={`${item[0].regular_price.value} ${item[0].regular_price.currency}`}
+                                        description={`${getItemTotalPrice(item)} ${item[0].regular_price.currency}`}
                                     />
-                                    <div className='cart__buttons-block'>
+                                    <div className='cartList__buttons-block'>
                                         <Button onClick={() => handleDeleteItem(item[0].id)} type="primary" danger>-</Button>
                                         <Title level={4}>{item.length}</Title>
                                         <Button onClick={() => handleAddItem(item[0])} type="primary">+</Button>
