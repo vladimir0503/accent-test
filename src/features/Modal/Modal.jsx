@@ -16,13 +16,9 @@ const Modal = () => {
         navigate('/');
     };
 
-    const handleCancel = () => {
-        dispatch(toggleModal(false));
-    };
-
     return (
         <>
-            <ModalElem title="Внимание!" open={isActive} onOk={handleOk} onCancel={handleCancel}>
+            <ModalElem title="Внимание!" open={isActive} onOk={handleOk} onCancel={handleOk}>
                 <p>Заказ успешно оформлен!</p>
             </ModalElem>
         </>

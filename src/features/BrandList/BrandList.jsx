@@ -32,7 +32,7 @@ const BrandList = () => {
     };
 
     React.useEffect(() => {
-        dispatch(fetchBrands());
+        if (!brands.length) dispatch(fetchBrands());
     }, []);
 
     return (
