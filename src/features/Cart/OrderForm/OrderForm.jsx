@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
 import Title from '../../../components/Title/Title';
+import { API } from '../../../api/api';
 
 import './OrderForm.scss';
 
 const OrderForm = ({ totalPrice }) => {
 
-    const onFinish = (values) => {
-        console.log('Success:', { ...values, totalPrice });
+    const onFinish = async values => {
+        const res = await API.postData({ ...values, totalPrice });
+        console.log('Success:', res);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -18,15 +20,6 @@ const OrderForm = ({ totalPrice }) => {
         <div className='orderForm'>
             <Form
                 name="basic"
-                labelCol={{
-                    span: 8,
-                }}
-                wrapperCol={{
-                    span: 16,
-                }}
-                style={{
-                    maxWidth: 600,
-                }}
                 initialValues={{
                     remember: true,
                 }}
@@ -48,8 +41,8 @@ const OrderForm = ({ totalPrice }) => {
                 </Form.Item>
 
                 <Form.Item
-                    name="Телефон"
-                    label="phone"
+                    label="Телефон"
+                    name="phone"
                     rules={[
                         {
                             required: true,
