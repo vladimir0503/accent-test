@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
+import Title from '../../../components/Title/Title';
 
 import './OrderForm.scss';
 
-const OrderForm = () => {
+const OrderForm = ({ totalPrice }) => {
 
     const onFinish = (values) => {
-        console.log('Success:', values);
+        console.log('Success:', { ...values, totalPrice });
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -14,7 +15,7 @@ const OrderForm = () => {
     };
 
     return (
-        <div>
+        <div className='orderForm'>
             <Form
                 name="basic"
                 labelCol={{
@@ -34,12 +35,12 @@ const OrderForm = () => {
                 autoComplete="off"
             >
                 <Form.Item
-                    label="Username"
+                    label="Имя"
                     name="username"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Введите имя',
                         },
                     ]}
                 >
@@ -47,27 +48,28 @@ const OrderForm = () => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Password"
-                    name="password"
+                    name="Телефон"
+                    label="phone"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your password!',
+                            message: 'Ведите номер телефона',
                         },
+                        {
+                            pattern: /^(?:\d*)$/,
+                            message: 'Вы должны вводить только цифры',
+                        }
                     ]}
                 >
-                    <Input.Password />
+                    <Input
+                        style={{
+                            width: '100%',
+                        }}
+                    />
                 </Form.Item>
 
-                <Form.Item
-                    name="remember"
-                    valuePropName="checked"
-                    wrapperCol={{
-                        offset: 8,
-                        span: 16,
-                    }}
-                >
-                    <Checkbox>Remember me</Checkbox>
+                <Form.Item>
+                    <Title level={5}>{`Итого: ${totalPrice} USD`}</Title>
                 </Form.Item>
 
                 <Form.Item
@@ -77,7 +79,7 @@ const OrderForm = () => {
                     }}
                 >
                     <Button type="primary" htmlType="submit">
-                        Submit
+                        Отправить
                     </Button>
                 </Form.Item>
             </Form>

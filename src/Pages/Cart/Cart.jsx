@@ -1,6 +1,7 @@
 import React from 'react';
 import CartList from '../../features/Cart/CartList/CartList';
 import OrderForm from '../../features/Cart/OrderForm/OrderForm';
+import Title from '../../components/Title/Title';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItems, deleteItems } from '../../features/Cart/cartSlice';
 
@@ -21,12 +22,18 @@ const Cart = () => {
 
     return (
         <div className='cart'>
-            <OrderForm totalPrice={totalPrice}/>
-            <CartList
-                items={cartItems}
-                handleAddItem={addCartItem}
-                handleDeleteItem={deleteCartItem}
-            />
+            {
+                !cartItems.length
+                    ? <Title level={1}>Корзина пуста</Title>
+                    : <>
+                        <OrderForm totalPrice={totalPrice} />
+                        <CartList
+                            items={cartItems}
+                            handleAddItem={addCartItem}
+                            handleDeleteItem={deleteCartItem}
+                        />
+                    </>
+            }
         </div>
     );
 };

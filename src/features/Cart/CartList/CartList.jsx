@@ -23,36 +23,32 @@ const CartList = ({ items, handleAddItem, handleDeleteItem }) => {
 
     return (
         <div className='cartList'>
-            {
-                Boolean(orderedList.length)
-                    ? <List
-                        pagination={{
-                            position: 'bottom',
-                            align: 'start',
-                            defaultPageSize: 6
-                        }}
-                        dataSource={orderedList}
-                        renderItem={(item, index) => (
-                            <>
-                                <List.Item>
-                                    <List.Item.Meta
-                                        avatar={
-                                            <Avatar src={item[0].image} />
-                                        }
-                                        title={<Title level={5}>{item[0].title}</Title>}
-                                        description={`${getItemTotalPrice(item)} ${item[0].regular_price.currency}`}
-                                    />
-                                    <div className='cartList__buttons-block'>
-                                        <Button onClick={() => handleDeleteItem(item[0].id)} type="primary" danger>-</Button>
-                                        <Title level={4}>{item.length}</Title>
-                                        <Button onClick={() => handleAddItem(item[0])} type="primary">+</Button>
-                                    </div>
-                                </List.Item>
-                            </>
-                        )}
-                    />
-                    : <Title level={1}>Корзина пуста</Title>
-            }
+            <List
+                pagination={{
+                    position: 'bottom',
+                    align: 'start',
+                    defaultPageSize: 6
+                }}
+                dataSource={orderedList}
+                renderItem={(item, index) => (
+                    <>
+                        <List.Item>
+                            <List.Item.Meta
+                                avatar={
+                                    <Avatar src={item[0].image} />
+                                }
+                                title={<Title level={5}>{item[0].title}</Title>}
+                                description={`${getItemTotalPrice(item)} ${item[0].regular_price.currency}`}
+                            />
+                            <div className='cartList__buttons-block'>
+                                <Button onClick={() => handleDeleteItem(item[0].id)} type="primary" danger>-</Button>
+                                <Title level={4}>{item.length}</Title>
+                                <Button onClick={() => handleAddItem(item[0])} type="primary">+</Button>
+                            </div>
+                        </List.Item>
+                    </>
+                )}
+            />
         </div>
     );
 };
