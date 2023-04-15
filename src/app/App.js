@@ -3,12 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../Pages/Home/Home';
 import Cart from '../Pages/Cart/Cart'
 import Header from '../components/Header/Header';
+import Modal from '../features/Modal/Modal';
 
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
+      <Modal />
       <Header />
       <div className='App__content'>
         <Routes>

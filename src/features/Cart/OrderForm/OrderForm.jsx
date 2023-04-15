@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
+import { useDispatch } from 'react-redux';
+import { toggleModal } from '../../Modal/modalSlice';
 import Title from '../../../components/Title/Title';
 import { API } from '../../../api/api';
 
@@ -7,9 +9,13 @@ import './OrderForm.scss';
 
 const OrderForm = ({ totalPrice }) => {
 
+    const dispatch = useDispatch();
+
     const onFinish = async values => {
-        const res = await API.postData({ ...values, totalPrice });
-        console.log('Success:', res);
+        const { result } = await API.postData({ ...values, totalPrice });
+        if (result === 'ok') {
+            dispatch(toggleModal(true))
+        };
     };
 
     const onFinishFailed = (errorInfo) => {
