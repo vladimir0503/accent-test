@@ -1,0 +1,13 @@
+.cart {
+    h5,
+    h4 {
+        margin: 0;
+    }
+
+    &__buttons-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 130px;
+    }
+}

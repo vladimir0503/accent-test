@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
         deleteItems: (state, action) => {
             let found = false;
             state.cartItems = state.cartItems.filter(item => {
-                if (!found && item.id === action.payload.id) {
+                if (!found && item.id === action.payload) {
                     found = true;
                     return false;
                 } else {

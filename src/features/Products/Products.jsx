@@ -16,7 +16,7 @@ const Products = () => {
   //   setCurrentPage(page);
   // };
 
-  console.log(productsList);
+  // console.log(productsList);
 
   return (
     <div className='products'>

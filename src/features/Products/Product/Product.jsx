@@ -22,7 +22,7 @@ const Product = ({ product }) => {
     };
 
     const removeFromCart = () => {
-        dispatch(deleteItems({id, value}));
+        dispatch(deleteItems(id));
     };
 
     return (
