@@ -10,10 +10,6 @@ const Products = () => {
 
   const { productsList } = useSelector(state => state.products);
 
-  const windowWidth = window.innerWidth;
-
-  console.log(windowWidth);
-
   return (
     <div className='products'>
       {!!productsList.length
