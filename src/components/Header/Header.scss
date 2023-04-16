@@ -1,23 +1,41 @@
-.cartLink {
-    display: flex;
-    cursor: pointer;
+.header {
+    padding: 0;
 
-    &__count {
+    h1 {
+        color: white;
+        margin: 0;
+    }
+
+    &__content {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        position: relative;
-        right: 15px;
-        border-radius: 100%;
-        width: 25px;
-        height: 25px;
-        background-color: white;
+        width: 1100px;
+        margin: 0 auto;
 
-        p {
-            margin: 0;
-            color: black;
-            font-size: 15px;
-            font-weight: bold;
+        &__cartLink {
+            display: flex;
+            cursor: pointer;
+        
+            &_count {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                right: 15px;
+                border-radius: 100%;
+                width: 25px;
+                height: 25px;
+                background-color: white;
+        
+                p {
+                    margin: 0;
+                    color: black;
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+            }
         }
     }
+
 }

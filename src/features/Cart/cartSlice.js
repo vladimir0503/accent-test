@@ -11,9 +11,9 @@ export const cartSlice = createSlice({
     reducers: {
         addItems: (state, action) => {
             state.cartItems = [...state.cartItems, action.payload];
-            state.totalPrice = state.cartItems.reduce((sum, { regular_price }) => {
+            state.totalPrice = Math.round(state.cartItems.reduce((sum, { regular_price }) => {
                 return sum + regular_price.value
-            }, 0);
+            }, 0));
         },
 
         deleteItems: (state, action) => {
@@ -26,9 +26,9 @@ export const cartSlice = createSlice({
                     return true;
                 }
             });
-            state.totalPrice = state.cartItems.reduce((sum, { regular_price }) => {
+            state.totalPrice = Math.round(state.cartItems.reduce((sum, { regular_price }) => {
                 return sum + regular_price.value
-            }, 0);
+            }, 0));
         },
 
         clearCart: state => {
