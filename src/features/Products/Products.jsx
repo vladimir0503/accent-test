@@ -10,13 +10,17 @@ const Products = () => {
 
   const { productsList } = useSelector(state => state.products);
 
+  const windowWidth = window.innerWidth;
+
+  console.log(windowWidth);
+
   return (
     <div className='products'>
       {!!productsList.length
         ? <List
-          grid={{ gutter: 16, column: 3 }}
+          grid={{ gutter: 16, column: window.innerWidth > 1100 ? 3 : 1 }}
           pagination={{
-            position: 'bottom',
+            position: 'top',
             align: 'start',
             pageSize: 6
           }}

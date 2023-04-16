@@ -1,4 +1,8 @@
 .header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+
     padding: 0;
 
     h1 {
@@ -16,7 +20,7 @@
         &__cartLink {
             display: flex;
             cursor: pointer;
-        
+
             &_count {
                 display: flex;
                 align-items: center;
@@ -27,7 +31,7 @@
                 width: 25px;
                 height: 25px;
                 background-color: white;
-        
+
                 p {
                     margin: 0;
                     color: black;
@@ -37,5 +41,38 @@
             }
         }
     }
+}
 
+@media screen and (max-width: 1100px) {
+    .header {
+        padding: 0 20px 0 20px;
+
+        &__content {
+            width: 100%;
+
+            &__cartLink {
+                display: flex;
+                cursor: pointer;
+
+                &_count {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    right: 15px;
+                    border-radius: 100%;
+                    width: 25px;
+                    height: 25px;
+                    background-color: white;
+
+                    p {
+                        margin: 0;
+                        color: black;
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }
