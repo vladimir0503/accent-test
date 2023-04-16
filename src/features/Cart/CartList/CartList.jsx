@@ -38,7 +38,7 @@ const CartList = ({ items, handleAddItem, handleDeleteItem }) => {
                                     <Avatar src={item[0].image} />
                                 }
                                 title={<Title level={5}>{item[0].title}</Title>}
-                                description={`${getItemTotalPrice(item)} ${item[0].regular_price.currency}`}
+                                description={`${getItemTotalPrice(item).toFixed(2)} ${item[0].regular_price.currency}`}
                             />
                             <div className='cartList__buttons-block'>
                                 <Button onClick={() => handleDeleteItem(item[0].id)} type="primary" danger>-</Button>

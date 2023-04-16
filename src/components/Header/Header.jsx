@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Layout } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
@@ -22,7 +22,9 @@ const Header = () => {
         <Layout>
             <Header className='header' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className='header__content'>
-                    <Title level={1}>Shop</Title>
+                    <Link to='/'>
+                        <Title level={1}>Shop</Title>
+                    </Link>
                     <div onClick={inToCart} className='header__content__cartLink'>
                         <ShoppingCartOutlined style={{ fontSize: '50px', color: 'white' }} />
                         <div className="header__content__cartLink_count">
