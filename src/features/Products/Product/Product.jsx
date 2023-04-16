@@ -34,7 +34,7 @@ const Product = ({ product }) => {
                 }}
                 cover={<img alt="example" src={image} />}
                 actions={[
-                    <Button type="primary" onClick={removeFromCart}>-</Button>,
+                    <Button type="primary" danger onClick={removeFromCart}>-</Button>,
                     <Title level={4}>{getQuantity(id)}</Title>,
                     <Button type="primary" onClick={addToCart}>+</Button>
                 ]}

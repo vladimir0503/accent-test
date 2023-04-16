@@ -25,7 +25,7 @@ const CartList = ({ items, handleAddItem, handleDeleteItem }) => {
         <div className='cartList'>
             <List
                 pagination={{
-                    position: 'bottom',
+                    position: 'top',
                     align: 'start',
                     defaultPageSize: 6
                 }}
